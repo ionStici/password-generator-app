@@ -1,5 +1,8 @@
+import './styles.scss';
+import Markup from './Markup';
+
 function App() {
-  return null;
+    return <Markup />;
 }
 
 export default App;
