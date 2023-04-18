@@ -46,7 +46,44 @@ const Markup = function (props) {
                         />
                     </div>
 
-                    {/* <div className="list-box"></div> */}
+                    <ul className="ul">
+                        <li className="li" data-type="uppercase">
+                            <label>
+                                <input type="checkbox" defaultChecked />
+                                <span className="ul__check"></span>
+                                <span className="ul__text">
+                                    Include Uppercase Letters
+                                </span>
+                            </label>
+                        </li>
+                        <li className="li" data-type="lowercase">
+                            <label>
+                                <input type="checkbox" defaultChecked />
+                                <span className="ul__check"></span>
+                                <span className="ul__text">
+                                    Include Lowercase Letters
+                                </span>
+                            </label>
+                        </li>
+                        <li className="li" data-type="numbers">
+                            <label>
+                                <input type="checkbox" defaultChecked />
+                                <span className="ul__check"></span>
+                                <span className="ul__text">
+                                    Include Numbers
+                                </span>
+                            </label>
+                        </li>
+                        <li className="li" data-type="symbols">
+                            <label>
+                                <input type="checkbox" />
+                                <span className="ul__check"></span>
+                                <span className="ul__text">
+                                    Include Symbols
+                                </span>
+                            </label>
+                        </li>
+                    </ul>
 
                     {/* <div className="strength-box"></div> */}
 
