@@ -39,9 +39,9 @@ const Markup = function (props) {
                             className="range-widget"
                             type="range"
                             min="0"
-                            max="20"
-                            step="1"
-                            defaultValue="10"
+                            max="100"
+                            step="5"
+                            defaultValue="50"
                             onChange={props.onChange}
                         />
                     </div>

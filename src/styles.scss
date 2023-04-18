@@ -261,10 +261,65 @@ main {
 
 .range-box {
     margin-bottom: 32px;
+    --widget-current-size: 50%;
 }
 
 .range-widget {
     width: 100%;
+    height: 8px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: linear-gradient(
+        to right,
+        var(--color-neon-green) 0%,
+        var(--color-neon-green) var(--widget-current-size),
+        var(--color-very-dark-grey) var(--widget-current-size),
+        var(--color-very-dark-grey) 100%
+    );
+
+    &::-webkit-slider-thumb {
+        appearance: none;
+        -webkit-appearance: none;
+
+        width: 28px;
+        height: 28px;
+        background-color: var(--color-almost-white);
+        border-radius: 50%;
+        border: none;
+    }
+
+    &::-moz-range-thumb {
+        appearance: none;
+        -webkit-appearance: none;
+
+        width: 28px;
+        height: 28px;
+        background-color: var(--color-almost-white);
+        border-radius: 50%;
+        border: none;
+    }
+
+    &::-webkit-slider-thumb:hover {
+        cursor: pointer;
+        background: var(--color-very-dark-grey);
+        box-shadow: 0 0 0 2px var(--color-neon-green);
+    }
+
+    &::-moz-range-thumb:hover {
+        cursor: pointer;
+        background: var(--color-very-dark-grey);
+        box-shadow: 0 0 0 2px var(--color-neon-green);
+    }
+
+    &::-webkit-slider-thumb:active {
+        cursor: grab;
+    }
+
+    &::-moz-range-thumb:active {
+        cursor: grab;
+    }
 }
 
 // // // // // // // // // // // // // // // // // // // //
