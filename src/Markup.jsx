@@ -12,11 +12,23 @@ const Markup = function (props) {
                 <h1 className="title">Password Generator</h1>
 
                 <div className="header">
-                    <p>fwefochmgiuf</p>
-                    {icon_copy}
+                    <p className="password password-empty">P4$5W0rD!</p>
+                    <p className="copied copied-hidden">Copied</p>
+                    <button
+                        className="copy-btn"
+                        aria-label="Copy"
+                        onClick={props.copyText}
+                    >
+                        {icon_copy}
+                    </button>
+                    {/* Password: password-empty */}
+                    {/* Copied: copied-hidden */}
+                    {/* Button: copy-active */}
                 </div>
 
-                <div></div>
+                <div className="container">
+                    <div></div>
+                </div>
             </div>
         </main>
     );
