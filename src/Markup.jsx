@@ -100,10 +100,10 @@ const Markup = function (props) {
                         </div>
                     </div>
 
-                    {/* <button className="generate-btn">
+                    <button className="generate-btn">
                         <span>Generate</span>
                         {icon_arrow}
-                    </button> */}
+                    </button>
                 </div>
             </div>
         </main>
