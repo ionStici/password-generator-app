@@ -6,7 +6,11 @@ function App() {
         console.log('Copied');
     };
 
-    return <Markup copyText={copyText} />;
+    const handleRangeChange = event => {
+        document.getElementById('length').textContent = event.target.value;
+    };
+
+    return <Markup copyText={copyText} onChange={handleRangeChange} />;
 }
 
 export default App;

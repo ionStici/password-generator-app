@@ -27,7 +27,33 @@ const Markup = function (props) {
                 </div>
 
                 <div className="container">
-                    <div></div>
+                    <div className="upper-box">
+                        <p className="upper-box__text">Character Length</p>
+                        <p className="upper-box__num" id="length">
+                            10
+                        </p>
+                    </div>
+
+                    <div className="range-box">
+                        <input
+                            className="range-widget"
+                            type="range"
+                            min="0"
+                            max="20"
+                            step="1"
+                            defaultValue="10"
+                            onChange={props.onChange}
+                        />
+                    </div>
+
+                    {/* <div className="list-box"></div> */}
+
+                    {/* <div className="strength-box"></div> */}
+
+                    {/* <button className="generate-btn">
+                        <span>Generate</span>
+                        {icon_arrow}
+                    </button> */}
                 </div>
             </div>
         </main>

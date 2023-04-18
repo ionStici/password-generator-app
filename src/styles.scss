@@ -90,10 +90,33 @@ main {
     justify-content: space-between;
     height: 64px;
     padding: 0 6px 0 16px;
+    margin-bottom: 16px;
 
     @media only screen and (min-width: 500px) {
         height: 80px;
         padding: 0 18px 0 32px;
+        margin-bottom: 24px;
+    }
+
+    &::after {
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 89%;
+        height: 100%;
+
+        background-image: linear-gradient(
+            to right,
+            transparent 80%,
+            var(--color-dark-grey)
+        );
+
+        @media only screen and (min-width: 500px) {
+            width: 86%;
+        }
     }
 }
 
@@ -125,6 +148,8 @@ main {
 // // // // // // // // // // // // // // // // // // // //
 
 .copy-btn {
+    position: relative;
+    z-index: 5;
     border: none;
     background-color: transparent;
     padding: 8px 10px;
@@ -154,6 +179,7 @@ main {
 
 .copied {
     position: absolute;
+    z-index: 5;
     top: 50%;
     transform: translateY(-50%);
     right: 49.5px;
@@ -186,6 +212,59 @@ main {
 // // // // // // // // // // // // // // // // // // // //
 
 .container {
+    padding: 16px;
+    background-color: var(--color-dark-grey);
+
+    @media only screen and (min-width: 500px) {
+        padding: 24px 32px 32px 32px;
+    }
+}
+
+// // // // // // // // // // // // // // // // // // // //
+
+.upper-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 8px;
+
+    @media only screen and (min-width: 500px) {
+        padding-bottom: 16px;
+    }
+
+    &__text {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 21px;
+
+        @media only screen and (min-width: 500px) {
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+
+    &__num {
+        color: var(--color-neon-green);
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+
+        @media only screen and (min-width: 500px) {
+            font-size: 32px;
+            line-height: 42px;
+        }
+    }
+}
+
+// // // // // // // // // // // // // // // // // // // //
+
+.range-box {
+    margin-bottom: 32px;
+}
+
+.range-widget {
+    width: 100%;
 }
 
 // // // // // // // // // // // // // // // // // // // //
