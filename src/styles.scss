@@ -154,6 +154,16 @@ main {
     background-color: transparent;
     padding: 8px 10px;
 
+    cursor: pointer;
+
+    path {
+        transition: fill 0.15s;
+    }
+
+    &:hover path {
+        fill: var(--color-white);
+    }
+
     @media only screen and (min-width: 500px) {
         padding: 12px 14px;
     }
@@ -168,10 +178,8 @@ main {
 }
 
 .copy-active {
-    cursor: pointer;
-
     &:hover path {
-        fill: var(--color-white);
+        fill: var(--color-neon-green);
     }
 }
 
@@ -196,17 +204,9 @@ main {
 }
 
 .copied-hidden {
-    transition: opacity 0.1s;
+    transition: opacity 0.15s;
     pointer-events: none;
     opacity: 0;
-}
-
-// // // // // // // // // // // // // // // // // // // //
-
-.icon_check {
-}
-
-.icon_arrow {
 }
 
 // // // // // // // // // // // // // // // // // // // //

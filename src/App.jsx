@@ -5,7 +5,18 @@ function App() {
     // // // // // // // // // // // // // // // // // // // //
 
     const copyText = () => {
-        console.log('Copied');
+        const copyBtnEl = document.querySelector('.copy-btn');
+        const copyTextEl = document.querySelector('.copied');
+        const passwordText = document.querySelector('.password').textContent;
+
+        navigator.clipboard.writeText(passwordText);
+        copyBtnEl.classList.add('copy-active');
+        copyTextEl.classList.remove('copied-hidden');
+
+        setTimeout(() => {
+            copyBtnEl.classList.remove('copy-active');
+            copyTextEl.classList.add('copied-hidden');
+        }, 2500);
     };
 
     // // // // // // // // // // // // // // // // // // // //
