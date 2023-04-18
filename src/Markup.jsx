@@ -85,7 +85,20 @@ const Markup = function (props) {
                         </li>
                     </ul>
 
-                    {/* <div className="strength-box"></div> */}
+                    <div className="strength-box">
+                        <p className="strength-box__title">Strength</p>
+                        {/* Too weak! */}
+                        {/* Weak */}
+                        {/* Medium */}
+                        {/* Strong */}
+                        <p className="strength-box__level">Medium</p>
+                        <div className="strength-box__box yel">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
 
                     {/* <button className="generate-btn">
                         <span>Generate</span>
