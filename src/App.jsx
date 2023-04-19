@@ -1,5 +1,6 @@
 import './styles.scss';
 import Markup from './Markup';
+import React from 'react';
 
 function App() {
     // // // // // // // // // // // // // // // // // // // //
@@ -21,49 +22,101 @@ function App() {
 
     // // // // // // // // // // // // // // // // // // // //
 
-    const handleRangeChange = event => {
-        const characterLength = event.target.value / 5;
-        const levelTextEl = document.querySelector('.strength-box__level');
-        const boxEl = document.querySelector('.strength-box__box');
+    const changeSettings = event => {
+        // if (event?.target.type === 'checkbox') return;
 
-        document
-            .querySelector('.range-box')
-            .style.setProperty(
-                '--widget-current-size',
-                `${event.target.value}%`
-            );
+        // // // // // // // // // //
 
-        document.getElementById('length').textContent = characterLength;
+        const rangeBoxEl = document.querySelector('.range-box');
+        const value = document.querySelector('.range-widget').value;
+        const charLength = value / 5;
+        document.getElementById('length').textContent = charLength;
+        rangeBoxEl.style.setProperty('--widget-current-size', `${value}%`);
 
-        if (characterLength < 8) {
-            levelTextEl.textContent = 'Too weak!';
-            boxEl.classList.remove('rd', 'or', 'yel', 'gr');
-            boxEl.classList.add('rd');
+        // // // // // // // // // //
+
+        const uppcase = document.getElementById('uppercase').checked;
+        const lowcase = document.getElementById('lowercase').checked;
+        const numbers = document.getElementById('numbers').checked;
+        const symbols = document.getElementById('symbols').checked;
+        const cond = [uppcase, lowcase, numbers, symbols].filter(c => c).length;
+
+        if (cond === 0) return;
+
+        console.log(uppcase, lowcase, numbers, symbols);
+
+        // // // // // // // // // //
+
+        const strengthTextEl = document.querySelector('.strength-box__level');
+        const strengthBoxEl = document.querySelector('.strength-box__box');
+
+        const setTooWeak = () => {
+            strengthTextEl.textContent = 'Too weak!';
+            strengthBoxEl.classList.remove('rd', 'or', 'yel', 'gr');
+            strengthBoxEl.classList.add('rd');
+        };
+
+        const setWeak = () => {
+            strengthTextEl.textContent = 'Weak';
+            strengthBoxEl.classList.remove('rd', 'or', 'yel', 'gr');
+            strengthBoxEl.classList.add('or');
+        };
+
+        const setMedium = () => {
+            strengthTextEl.textContent = 'Medium';
+            strengthBoxEl.classList.remove('rd', 'or', 'yel', 'gr');
+            strengthBoxEl.classList.add('yel');
+        };
+
+        const setStrong = () => {
+            strengthTextEl.textContent = 'Strong';
+            strengthBoxEl.classList.remove('rd', 'or', 'yel', 'gr');
+            strengthBoxEl.classList.add('gr');
+        };
+
+        // // // // // // // // // //
+
+        // console.log(cond);
+        // console.log(charLength);
+
+        if ((charLength > 15 && cond >= 4) || (charLength > 17 && cond >= 3)) {
+            setStrong();
+            return;
         }
 
-        if (characterLength >= 8 && characterLength < 12) {
-            levelTextEl.textContent = 'Weak';
-            boxEl.classList.remove('rd', 'or', 'yel', 'gr');
-            boxEl.classList.add('or');
+        if ((charLength > 9 && cond >= 3) || (charLength > 12 && cond >= 2)) {
+            setMedium();
+            return;
         }
 
-        if (characterLength >= 12 && characterLength < 16) {
-            levelTextEl.textContent = 'Medium';
-            boxEl.classList.remove('rd', 'or', 'yel', 'gr');
-            boxEl.classList.add('yel');
+        if ((charLength > 5 && cond >= 2) || (charLength > 8 && cond >= 1)) {
+            setWeak();
+            return;
         }
 
-        if (characterLength >= 16 && characterLength <= 20) {
-            levelTextEl.textContent = 'Strong';
-            boxEl.classList.remove('rd', 'or', 'yel', 'gr');
-            boxEl.classList.add('gr');
+        if (charLength <= 5) {
+            setTooWeak();
+            return;
         }
     };
 
+    React.useEffect(() => changeSettings(), []);
+
     // // // // // // // // // // // // // // // // // // // //
 
-    const generatePassword = event => {
+    const generatePassword = () => {
         const pwLength = document.querySelector('.range-widget').value / 5;
+        if (pwLength === 0) return;
+
+        const uppcase = document.getElementById('uppercase').checked;
+        const lowcase = document.getElementById('lowercase').checked;
+        const nums = document.getElementById('numbers').checked;
+        const syms = document.getElementById('symbols').checked;
+        const cond = [uppcase, lowcase, nums, syms].filter(c => c).length;
+        if (cond === 0) return;
+
+        // // // // // // // // // //
+
         const lis = document.querySelectorAll('.li');
         const passwordEl = document.querySelector('.password');
 
@@ -121,7 +174,7 @@ function App() {
     return (
         <Markup
             copyText={copyText}
-            onChange={handleRangeChange}
+            changeSettings={changeSettings}
             generate={generatePassword}
         />
     );

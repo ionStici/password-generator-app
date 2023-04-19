@@ -21,9 +21,6 @@ const Markup = function (props) {
                     >
                         {icon_copy}
                     </button>
-                    {/* Password: password-empty */}
-                    {/* Copied: copied-hidden */}
-                    {/* Button: copy-active */}
                 </div>
 
                 <div className="container">
@@ -42,14 +39,18 @@ const Markup = function (props) {
                             max="100"
                             step="5"
                             defaultValue="50"
-                            onChange={props.onChange}
+                            onChange={props.changeSettings}
                         />
                     </div>
 
                     <ul className="ul">
                         <li className="li" data-type="uppercase">
-                            <label>
-                                <input type="checkbox" defaultChecked />
+                            <label onClick={props.changeSettings}>
+                                <input
+                                    id="uppercase"
+                                    type="checkbox"
+                                    defaultChecked
+                                />
                                 <span className="ul__check"></span>
                                 <span className="ul__text">
                                     Include Uppercase Letters
@@ -57,8 +58,12 @@ const Markup = function (props) {
                             </label>
                         </li>
                         <li className="li" data-type="lowercase">
-                            <label>
-                                <input type="checkbox" defaultChecked />
+                            <label onClick={props.changeSettings}>
+                                <input
+                                    id="lowercase"
+                                    type="checkbox"
+                                    defaultChecked
+                                />
                                 <span className="ul__check"></span>
                                 <span className="ul__text">
                                     Include Lowercase Letters
@@ -66,8 +71,12 @@ const Markup = function (props) {
                             </label>
                         </li>
                         <li className="li" data-type="numbers">
-                            <label>
-                                <input type="checkbox" defaultChecked />
+                            <label onClick={props.changeSettings}>
+                                <input
+                                    id="numbers"
+                                    type="checkbox"
+                                    defaultChecked
+                                />
                                 <span className="ul__check"></span>
                                 <span className="ul__text">
                                     Include Numbers
@@ -75,8 +84,8 @@ const Markup = function (props) {
                             </label>
                         </li>
                         <li className="li" data-type="symbols">
-                            <label>
-                                <input type="checkbox" />
+                            <label onClick={props.changeSettings}>
+                                <input id="symbols" type="checkbox" />
                                 <span className="ul__check"></span>
                                 <span className="ul__text">
                                     Include Symbols
