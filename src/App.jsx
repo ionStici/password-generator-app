@@ -29,23 +29,17 @@ function App() {
         )
             return;
 
-        // // // // // // // // // //
-
         const rangeBoxEl = document.querySelector('.range-box');
         const value = document.querySelector('.range-widget').value;
         const charLength = value / 5;
         document.getElementById('length').textContent = charLength;
         rangeBoxEl.style.setProperty('--widget-current-size', `${value}%`);
 
-        // // // // // // // // // //
-
         const uppcase = document.getElementById('uppercase').checked;
         const lowcase = document.getElementById('lowercase').checked;
         const numbers = document.getElementById('numbers').checked;
         const symbols = document.getElementById('symbols').checked;
         const cond = [uppcase, lowcase, numbers, symbols].filter(c => c).length;
-
-        // // // // // // // // // //
 
         const strengthTextEl = document.querySelector('.strength-box__level');
         const strengthBoxEl = document.querySelector('.strength-box__box');
@@ -74,8 +68,6 @@ function App() {
             strengthBoxEl.classList.add('gr');
         };
 
-        // // // // // // // // // //
-
         if (
             (charLength > 15 && cond >= 4) ||
             (charLength > 17 && cond >= 3) ||
@@ -99,10 +91,7 @@ function App() {
             return;
         }
 
-        if (true) {
-            setTooWeak();
-            return;
-        }
+        setTooWeak();
     };
 
     React.useEffect(() => changeSettings(), []);
@@ -119,8 +108,6 @@ function App() {
         const syms = document.getElementById('symbols').checked;
         const cond = [uppcase, lowcase, nums, syms].filter(c => c).length;
         if (cond === 0) return;
-
-        // // // // // // // // // //
 
         const lis = document.querySelectorAll('.li');
         const passwordEl = document.querySelector('.password');
