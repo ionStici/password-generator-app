@@ -130,7 +130,7 @@ function App() {
         // prettier-ignore
         const lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
         // prettier-ignore
-        const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
         // prettier-ignore
         const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '[', ']', ';', ':', '"', '<', '>', '?', ',', '.', '/', '|', '`', '~', '-', '='];
 
@@ -159,7 +159,10 @@ function App() {
         let randomNum = Math.floor(Math.random() * allCharacter.length - 1);
         const set = new Set();
 
-        if (!allCharacter[0]) return;
+        if (allCharacter == []) return;
+
+        const onlyNums = allCharacter.every(char => typeof char === 'number');
+        if (onlyNums) allCharacter = allCharacter.concat(numbers);
 
         while (set.size < pwLength) {
             set.add(randomNum);
