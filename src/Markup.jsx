@@ -87,10 +87,6 @@ const Markup = function (props) {
 
                     <div className="strength-box">
                         <p className="strength-box__title">Strength</p>
-                        {/* Too weak! */}
-                        {/* Weak */}
-                        {/* Medium */}
-                        {/* Strong */}
                         <p className="strength-box__level">Medium</p>
                         <div className="strength-box__box yel">
                             <div></div>
@@ -100,7 +96,7 @@ const Markup = function (props) {
                         </div>
                     </div>
 
-                    <button className="generate-btn">
+                    <button className="generate-btn" onClick={props.generate}>
                         <span>Generate</span>
                         {icon_arrow}
                     </button>
