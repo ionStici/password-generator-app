@@ -23,7 +23,11 @@ function App() {
     // // // // // // // // // // // // // // // // // // // //
 
     const changeSettings = event => {
-        // if (event?.target.type === 'checkbox') return;
+        if (
+            !(event?.target.type === 'checkbox') &&
+            event?._reactName === 'onClick'
+        )
+            return;
 
         // // // // // // // // // //
 
@@ -40,10 +44,6 @@ function App() {
         const numbers = document.getElementById('numbers').checked;
         const symbols = document.getElementById('symbols').checked;
         const cond = [uppcase, lowcase, numbers, symbols].filter(c => c).length;
-
-        if (cond === 0) return;
-
-        console.log(uppcase, lowcase, numbers, symbols);
 
         // // // // // // // // // //
 
@@ -76,15 +76,20 @@ function App() {
 
         // // // // // // // // // //
 
-        // console.log(cond);
-        // console.log(charLength);
-
-        if ((charLength > 15 && cond >= 4) || (charLength > 17 && cond >= 3)) {
+        if (
+            (charLength > 15 && cond >= 4) ||
+            (charLength > 17 && cond >= 3) ||
+            (charLength === 20 && cond >= 2)
+        ) {
             setStrong();
             return;
         }
 
-        if ((charLength > 9 && cond >= 3) || (charLength > 12 && cond >= 2)) {
+        if (
+            (charLength > 9 && cond >= 3) ||
+            (charLength > 12 && cond >= 2) ||
+            (charLength > 15 && cond >= 1)
+        ) {
             setMedium();
             return;
         }
@@ -94,7 +99,7 @@ function App() {
             return;
         }
 
-        if (charLength <= 5) {
+        if (true) {
             setTooWeak();
             return;
         }
@@ -159,7 +164,6 @@ function App() {
         while (set.size < pwLength) {
             set.add(randomNum);
             randomNum = Math.floor(Math.random() * allCharacter.length - 1);
-            console.log(randomNum);
         }
 
         const uniqueNumbers = [...set];
